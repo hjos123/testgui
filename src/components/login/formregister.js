@@ -1,11 +1,36 @@
 import React from 'react';
+import axios from 'axios';
+import { url } from '../../modules/auth';
 
 export default function Formregister(props){
-  const {password, email, name, repeatpassword} = props.user;
+  const {password, email, name} = props.user;
 
   const onRegister = (e) =>{
     e.preventDefault();
-    props.setMessege("registro","danger");
+    axios.post(`${url}/register`, {email: email, password:password, name: name})
+    .then(res => {
+        if (res.status === 200){
+            //console.log(res.data);
+            props.changerForm();
+            props.setMessege({
+              text: "Usuario registrado.",
+              type: "alert-success"
+            });
+        }
+        else{
+          props.setMessege({
+            text: "Favor de validar los campos/correo duplicado.",
+            type: "alert-warning"
+          });
+        }
+    })
+    .catch(error => {
+      //console.log(error.response)
+      props.setMessege({
+        text: "Error con el servidor.",
+        type: "alert-warning"
+      });
+    });
   }
 
   if ( props.showLogin )
@@ -44,16 +69,6 @@ export default function Formregister(props){
             className="form-control"
             required
             name="password" />
-          </div>
-          <div className="form-group">
-            <label>Repetir contraseña</label>
-            <input
-            type="password"
-            value={repeatpassword}
-            onChange={props.Changer}
-            className="form-control"
-            required
-            name="repeatpassword" />
           </div>
           <div className="text-center">
             <input

@@ -1,32 +1,29 @@
 import React from 'react';
-import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
 
 export default function Alerts(props) {
 
   const hideMessag = () =>{
-    props.setMessege("","");
+    props.setMessege({
+      text: "",
+      type: ""
+    });
   }
 
-  return(
-    <React.Fragment>
-      <Alert show={props.message.text ? true : false}>
-        <div className="card alert-message p-2">
-          <div className="card-body">
-            <strong>Alerta!</strong>
-            <h4>
-              {props.message.text}
-            </h4>
-            <hr />
-            <div className="d-flex justify-content-center">
-              <Button onClick={() => hideMessag()} variant={props.message.type}>
-                &times; Cerrar
-              </Button>
-            </div>
-          </div>
+  if (props.message.text.trim() === '')
+    return null;
+  else{
+    let classname = "alert alert-dismissible fade show mt-3 mb-3 ";
+    classname += props.message.type;
+    return(
+      <React.Fragment>
+        <div className={classname} role="alert">
+          <strong>Alerta!</strong>
+          <p>{props.message.text}</p>
+          <button type="button" onClick={() => hideMessag()} className="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-      </Alert>
-    </React.Fragment>
-  );
-
+      </React.Fragment>
+    );
+  }
 }

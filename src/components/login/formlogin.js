@@ -1,11 +1,12 @@
 import React from 'react';
-import { Login } from '../../modules/auth';
+import axios from 'axios';
+import { setToken, url } from '../../modules/auth';
 
 export default function Formlogin(props){
   const {password, email} = props.user;
 
   const validUser = () => {
-    if (password !== "" && email !== "")
+    if (password.trim() !== "" && email.trim() !== "")
       return  true;
     else
       return false;
@@ -14,8 +15,18 @@ export default function Formlogin(props){
   const onLogin = (e) =>{
     e.preventDefault();
     if ( validUser() ){
-      props.setMessege("logearse","success");
-      Login(email, password);
+      axios.post(`${url}/login`, {email: email, password:password})
+      .then(res => {
+          //console.log(res);
+          setToken(res.data.token);
+      })
+      .catch(error => {
+        //console.log(error.response)
+        props.setMessege({
+          text: "Error de credenciales",
+          type: "alert-warning"
+        });
+      });
     }
   }
 
