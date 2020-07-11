@@ -62,7 +62,7 @@ export default function Formlogin(props){
           <div className="text-center">
             <input
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-danger btn-primary-test"
             value="Iniciar sesión" />
           </div>
         </form>

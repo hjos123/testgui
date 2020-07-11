@@ -1,8 +1,10 @@
 *{
   font-family: 'Montserrat', sans-serif;
 }
+#root,
 html,
 body{
+  width: 100%;
   height: 100%;
 }
 body{
@@ -13,13 +15,14 @@ body{
   text-transform: uppercase;
 }
 .form-group > label{
-  font-size: 20px;
+  font-size: 20pt;
   color: #616161;
 }
 .form-control{
   border: none;
   border-bottom: 1px solid rgba(0,0,0,0.126);
   border-radius: 0;
-  font-size: 18px;
+  font-size: 18pt;
+  height: 46px;
   color: #818386;
 }

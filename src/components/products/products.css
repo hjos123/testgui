@@ -1,20 +1,21 @@
 .title-test{
   color: #616161;
-  font-size: 28px;
+  font-size: 28pt;
 }
 .product > span,
 .product > p{
   color: #616161;
 }
 .product > span{
-  font-size: 18px;
+  font-size: 18pt;
   font-weight: 600;
 }
 .product > div > h3{
+  font-size: 28pt;
   font-weight: 600;
 }
 .product > p{
-  font-size: 16px;
+  font-size: 16pt;
 }
 .product > img{
   display: block;

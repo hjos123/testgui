@@ -1,5 +1,21 @@
 .return-test{
   color: #818386;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 14pt;
+}
+.title-test-2{
+  color: #EC2227;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 35pt;
+}
+.text-test{
+  color: #616161;
+  font-size: 16pt;
+  margin: 0;
+  text-align: center;
+}
+.form-test{
+  margin-top: 50px;
 }

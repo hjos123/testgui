@@ -75,7 +75,7 @@ export default function Formregister(props){
           <div className="text-center">
             <input
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-danger btn-primary-test"
             value="Registrarse" />
           </div>
         </form>

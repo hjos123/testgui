@@ -2,12 +2,14 @@ import React from 'react';
 
 export default function Formproduct(){
   return(
-    <div className="row">
+    <div className="row mb-4">
       <div className="col-md-12">
-        <div className="card">
+        <div className="card pt-2 pb-2 pr-4 pl-4">
           <div className="card-body">
-            <h2 className="text-center">Información general de tu producto</h2>
-            <form action="#" method="post">
+            <h2 className="text-center title-test-2">
+              Información general de tu producto
+            </h2>
+            <form action="#" className="form-test" method="post">
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group">

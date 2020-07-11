@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Product(props){
   return(
-    <div className="col-md-3">
+    <div className="col-md-4">
       <div className="card">
         <div className="card-body">
           <div className="product">
