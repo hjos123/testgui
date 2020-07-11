@@ -10,7 +10,6 @@ export default function Formregister(props){
     axios.post(`${url}/register`, {email: email, password:password, name: name})
     .then(res => {
         if (res.status === 200){
-            //console.log(res.data);
             props.changerForm();
             props.setMessege({
               text: "Usuario registrado.",
@@ -47,6 +46,7 @@ export default function Formregister(props){
             value={name}
             onChange={props.Changer}
             className="form-control"
+            placeholder="Escribe tu nombre"
             required
             name="name" />
           </div>
@@ -57,6 +57,7 @@ export default function Formregister(props){
             value={email}
             onChange={props.Changer}
             className="form-control"
+            placeholder="ej. casa@lacasademaria.mx"
             required
             name="email" />
           </div>
@@ -67,6 +68,7 @@ export default function Formregister(props){
             value={password}
             onChange={props.Changer}
             className="form-control"
+            placeholder="Escribe tu contraseña"
             required
             name="password" />
           </div>

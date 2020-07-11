@@ -1,0 +1,26 @@
+.title-test{
+  color: #616161;
+  font-size: 28px;
+}
+.product > span,
+.product > p{
+  color: #616161;
+}
+.product > span{
+  font-size: 18px;
+  font-weight: 600;
+}
+.product > div > h3{
+  font-weight: 600;
+}
+.product > p{
+  font-size: 16px;
+}
+.product > img{
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: #dfdfdf;
+}

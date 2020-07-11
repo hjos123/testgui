@@ -44,6 +44,7 @@ export default function Formlogin(props){
             value={email}
             onChange={props.Changer}
             className="form-control"
+            placeholder="ej. maria@lacasademaria.mx"
             required
             name="email" />
           </div>
@@ -54,6 +55,7 @@ export default function Formlogin(props){
             value={password}
             onChange={props.Changer}
             className="form-control"
+            placeholder="Escribe tu contraseña"
             required
             name="password" />
           </div>
