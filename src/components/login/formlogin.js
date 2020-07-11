@@ -35,7 +35,7 @@ export default function Formlogin(props){
   else
     return(
       <React.Fragment>
-        <h2 className="title-test mb-4">Inicia sesión</h2>
+        <h2 className="title-test4 mb-4">Inicia sesión</h2>
         <form action="#" onSubmit={onLogin} method="post">
           <div className="form-group">
             <label>Correo electronico</label>

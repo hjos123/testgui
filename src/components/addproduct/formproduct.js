@@ -14,37 +14,63 @@ export default function Formproduct(){
                 <div className="col-md-6">
                   <div className="form-group">
                     <label>El nombre de tu producto</label>
-                    <input type="text" className="form-control" name="name" />
+                    <input
+                      type="text"
+                      placeholder='ej. Monitor LG de 23"'
+                      className="form-control formcontrol"
+                      name="name" />
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
                     <label>Categoría de tu platillo</label>
-                    <input type="text" className="form-control" name="category" />
+                    <input
+                      placeholder='ej. Electronicos'
+                      type="text"
+                      className="form-control formcontrol"
+                      name="category" />
                   </div>
                 </div>
                 <div className="col-md-12">
                   <div className="form-group">
                     <label>Descripcion del producto</label>
-                    <input type="text" className="form-control" name="description" />
+                    <input
+                      placeholder='ej. Monitor Full HD LG, 23 pulgadas, Resolucion 1920x1080px'
+                      type="text"
+                      className="form-control formcontrol"
+                      name="description" />
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
                     <label>¿Cuántos productos quieres vender?</label>
-                    <input type="text" className="form-control" name="quantity" />
+                    <input
+                      pattern='[0-9]*'
+                      placeholder='ej. 1'
+                      type="text"
+                      className="form-control formcontrol"
+                      name="quantity" />
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
                     <label>¿Hasta cuando estara disponible?</label>
-                    <input type="text" className="form-control" name="date" />
+                    <input
+                      placeholder='Seleccione una fecha y hora'
+                      type="text"
+                      className="form-control formcontrol"
+                      name="date" />
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
                     <label>¿Que precio tiene tu producto?</label>
-                    <input type="text" className="form-control" name="price" />
+                    <input
+                      pattern='[0-9]*'
+                      placeholder='ej. 3000 (Usa solo numeros)'
+                      type="text"
+                      className="form-control formcontrol"
+                      name="price" />
                   </div>
                 </div>
               </div>

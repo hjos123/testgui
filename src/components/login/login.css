@@ -1,6 +1,7 @@
-.title-test{
+.title-test4{
   font-weight: 400;
   color: #EC2227;
+  font-size: 35pt;
 }
 .text-test{
   display: block;
@@ -19,6 +20,8 @@
   background: #EC2227;
   padding: 10px 30px;
   font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .btn-second-test{
   background: #FFFFFF;

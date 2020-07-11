@@ -37,7 +37,7 @@ export default function Formregister(props){
   else
     return(
       <React.Fragment>
-        <h2 className="title-test mb-4">Registrate</h2>
+        <h2 className="title-test4 mb-4">Registrate</h2>
         <form action="#" onSubmit={onRegister} method="post">
           <div className="form-group">
             <label>Nombre</label>

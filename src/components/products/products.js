@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './products.css';
 import Product from './product';
 
@@ -12,9 +13,9 @@ export default function Products(){
           </span>
         </div>
         <div className="col-6 text-right">
-          <button className="btn btn-primary">
+          <Link to='/productos/nuevo' className="btn btn-danger btn-primary-test">
             Agregar
-          </button>
+          </Link>
         </div>
       </div>
       <div className="row">

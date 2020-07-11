@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './addproduct.css';
 import Formproduct from './formproduct';
 import Formphoto from './formphoto';
@@ -8,7 +9,9 @@ export default function Addproduct(){
     <div className="container">
       <div className="row mb-4">
         <div className="col-md-12">
-          <a href="/#" className="nav-link mb-3 text-uppercase return-test">Regresar a mis productos</a>
+          <Link to="/productos" className="nav-link mb-3 text-uppercase return-test">
+            Regresar a mis productos
+          </Link>
         </div>
         <div className="col-md-12">
           <div className="card pt-2 pb-2 pr-4 pl-4">

@@ -11,8 +11,8 @@ import AppState from './context/app/appState';
 export default function App() {
     return (
       <AppState>
-        <Navbar />
         <Router>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/productos" component={Products} />

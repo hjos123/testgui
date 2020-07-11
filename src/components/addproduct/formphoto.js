@@ -14,7 +14,7 @@ export default function Formphoto(){
         </div>
       </div>
       <div className="col-md-12 mt-4 mb-4 text-right">
-        <button className="btn btn-primary">
+        <button className="btn btn-danger btn-primary-test">
           Registrar
         </button>
       </div>
