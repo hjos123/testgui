@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
-import { setToken, url } from '../../modules/auth';
+import AuthService from '../../modules/auth';
 
-export default function Formlogin(props){
+const Formlogin = props => {
+
   const {password, email} = props.user;
 
   const validUser = () => {
@@ -12,20 +12,22 @@ export default function Formlogin(props){
       return false;
   }
 
-  const onLogin = (e) =>{
+  const Loggin = (e) => {
     e.preventDefault();
-    if ( validUser() ){
-      axios.post(`${url}/login`, {email: email, password:password})
-      .then(res => {
-          //console.log(res);
-          setToken(res.data.token);
+    if (validUser){
+      AuthService.onLogin(email, password)
+      .then(resp => {
+        console.log(resp);
+        if (resp.status === 200){
+          props.mostrarAlert("", "");
+          AuthService.setToken(resp.data.token);
+        }
+        else
+          props.mostrarAlert("Error de credenciales", "warning");
       })
       .catch(error => {
-        //console.log(error.response)
-        props.setMessege({
-          text: "Error de credenciales",
-          type: "alert-warning"
-        });
+        //console.log(error);
+        props.mostrarAlert("Error al conectarse al servidor", "danger");
       });
     }
   }
@@ -36,7 +38,7 @@ export default function Formlogin(props){
     return(
       <React.Fragment>
         <h2 className="title-test4 mb-4">Inicia sesión</h2>
-        <form action="#" onSubmit={onLogin} method="post">
+        <form action="#" onSubmit={Loggin} method="post">
           <div className="form-group">
             <label>Correo electronico</label>
             <input
@@ -69,3 +71,5 @@ export default function Formlogin(props){
       </React.Fragment>
     );
 }
+
+export default Formlogin;

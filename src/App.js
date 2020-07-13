@@ -5,6 +5,7 @@ import Navbar from './components/navbar/navbar';
 import Login from './components/login/login';
 import Products from './components/products/products';
 import Addproduct from './components/addproduct/addproduct';
+import Alert from './components/alert/alert';
 
 import AppState from './context/app/appState';
 
@@ -13,6 +14,7 @@ export default function App() {
       <AppState>
         <Router>
           <Navbar />
+          <Alert />
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/productos" component={Products} />

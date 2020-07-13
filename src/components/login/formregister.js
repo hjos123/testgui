@@ -1,34 +1,24 @@
 import React from 'react';
-import axios from 'axios';
-import { url } from '../../modules/auth';
+import UsersServices from '../../modules/users';
 
 export default function Formregister(props){
   const {password, email, name} = props.user;
 
   const onRegister = (e) =>{
     e.preventDefault();
-    axios.post(`${url}/register`, {email: email, password:password, name: name})
-    .then(res => {
-        if (res.status === 200){
-            props.changerForm();
-            props.setMessege({
-              text: "Usuario registrado.",
-              type: "alert-success"
-            });
-        }
-        else{
-          props.setMessege({
-            text: "Favor de validar los campos/correo duplicado.",
-            type: "alert-warning"
-          });
-        }
+    UsersServices.register(props.user)
+    .then( resp => {
+      console.log(resp);
+      if (resp.status === 200){
+        props.mostrarAlert("Usuario Registrado", "success");
+        props.changerForm();
+      }
+      else
+        props.mostrarAlert("Favor de validar los campos.", "warning");
     })
-    .catch(error => {
-      //console.log(error.response)
-      props.setMessege({
-        text: "Error con el servidor.",
-        type: "alert-warning"
-      });
+    .catch( error => {
+      //console.log(error);
+      props.mostrarAlert("Error al conectarse al servidor", "danger");
     });
   }
 

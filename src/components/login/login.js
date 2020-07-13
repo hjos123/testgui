@@ -1,19 +1,18 @@
-import React,{useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './login.css';
 import pixan from '../../assets/img/brand/pixan.png';
 import Formlogin from './formlogin';
 import Formregister from './formregister';
-import Alerts from '../alert/alerts';
+import appContext from '../../context/app/appContext';
 
-export default function Login() {
+const Login = () => {
+  const appsContext = useContext(appContext);
+  const { mostrarAlert } = appsContext;
+
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: ""
-  });
-  const [message, setMessege] = useState({
-    text: "",
-    type: ""
   });
   const [showLogin, setShowLogin] = useState(true);
 
@@ -23,14 +22,10 @@ export default function Login() {
       email: "",
       password: ""
     });
-    setMessege({
-      text: "",
-      type: ""
-    });
     setShowLogin(!showLogin);
   }
 
-  const Changer = (e) => {
+  const Changer = e => {
     e.preventDefault();
     setUser({
         ...user,
@@ -56,7 +51,7 @@ export default function Login() {
             <button
             className="btn btn-default btn-second-test mt-4"
             onClick={changerForm}>
-              { showLogin ? 'Registrate' : 'Inica sesion' }
+              { showLogin ? 'Registrate' : 'Inicia sesion' }
             </button>
           </div>
 
@@ -64,21 +59,17 @@ export default function Login() {
             <div className="card p-2">
               <div className="card-body">
                 <Formlogin
-                setMessege={setMessege}
+                mostrarAlert={mostrarAlert}
                 showLogin={showLogin}
                 user={user}
                 Changer={Changer} />
 
                 <Formregister
-                setMessege={setMessege}
+                mostrarAlert={mostrarAlert}
                 showLogin={showLogin}
                 user={user}
                 Changer={Changer}
                 changerForm={changerForm} />
-
-                <Alerts
-                setMessege={setMessege}
-                message={message} />
               </div>
             </div>
           </div>
@@ -87,3 +78,4 @@ export default function Login() {
     </div>
   );
 }
+export default Login;
