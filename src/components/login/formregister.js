@@ -1,26 +1,18 @@
-import React from 'react';
-import UsersServices from '../../modules/users';
+import React, {useContext} from 'react';
+import appContext from '../../context/app/appContext';
 
-export default function Formregister(props){
+const Formregister = props => {
   const {password, email, name} = props.user;
+
+  const { registrarUsuario, token } = useContext(appContext);
 
   const onRegister = (e) =>{
     e.preventDefault();
-    UsersServices.register(props.user)
-    .then( resp => {
-      console.log(resp);
-      if (resp.status === 200){
-        props.mostrarAlert("Usuario Registrado", "success");
-        props.changerForm();
-      }
-      else
-        props.mostrarAlert("Favor de validar los campos.", "warning");
-    })
-    .catch( error => {
-      //console.log(error);
-      props.mostrarAlert("Error al conectarse al servidor", "danger");
-    });
+    registrarUsuario(props.user);
   }
+
+  if (token !== null && token !== undefined)
+    props.history.push('/productos');
 
   if ( props.showLogin )
     return null;
@@ -72,3 +64,5 @@ export default function Formregister(props){
       </React.Fragment>
     );
 }
+
+export default Formregister;

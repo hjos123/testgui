@@ -27,14 +27,11 @@ body{
   color: #818386;
 }
 .alert{
+  margin: 0;
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  z-index: 1;
+  width: 100%;
   border-radius: 0;
-}
-.alert-dismissible .close{
-  position: inherit;
-  padding: 0;
+  z-index: 1;
 }

@@ -1,9 +1,10 @@
-import React from 'react';
-import AuthService from '../../modules/auth';
+import React, {useContext} from 'react';
+import appContext from '../../context/app/appContext';
 
 const Formlogin = props => {
-
   const {password, email} = props.user;
+
+  const { iniciarSesion } = useContext(appContext);
 
   const validUser = () => {
     if (password.trim() !== "" && email.trim() !== "")
@@ -14,21 +15,8 @@ const Formlogin = props => {
 
   const Loggin = (e) => {
     e.preventDefault();
-    if (validUser){
-      AuthService.onLogin(email, password)
-      .then(resp => {
-        console.log(resp);
-        if (resp.status === 200){
-          props.mostrarAlert("", "");
-          AuthService.setToken(resp.data.token);
-        }
-        else
-          props.mostrarAlert("Error de credenciales", "warning");
-      })
-      .catch(error => {
-        //console.log(error);
-        props.mostrarAlert("Error al conectarse al servidor", "danger");
-      });
+    if ( validUser() ){
+        iniciarSesion({email: email, password: password});
     }
   }
 

@@ -6,9 +6,9 @@ import './navbar.css';
 
 export default function Navbar(){
   const appsContext = useContext(appContext);
-  const { onloggin } = appsContext;
+  const { autenticado, cerrarSesion } = appsContext;
 
-  if (onloggin)
+  if (autenticado)
     return (
       <nav className="navbar navbar-light bg-test-primary mb-5">
         <div className="container">
@@ -16,7 +16,7 @@ export default function Navbar(){
             <Link to="/productos" className="nav-link d-inline-block text-white">
               Mis productos
             </Link>
-            <Link to="/" className="nav-link d-inline-block text-white">
+            <Link to="/" onClick={cerrarSesion} className="nav-link d-inline-block text-white">
               Cerrar sesión
             </Link>
           </div>

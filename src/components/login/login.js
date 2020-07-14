@@ -5,9 +5,8 @@ import Formlogin from './formlogin';
 import Formregister from './formregister';
 import appContext from '../../context/app/appContext';
 
-const Login = () => {
-  const appsContext = useContext(appContext);
-  const { mostrarAlert } = appsContext;
+const Login = props => {
+  const { token } = useContext(appContext);
 
   const [user, setUser] = useState({
     name: "",
@@ -32,6 +31,9 @@ const Login = () => {
         [e.target.name] : e.target.value
     });
   }
+
+  if (token !== null && token !== undefined)
+    props.history.push('/productos');
 
   return(
     <div className="wallpaper-login">
@@ -59,17 +61,16 @@ const Login = () => {
             <div className="card p-2">
               <div className="card-body">
                 <Formlogin
-                mostrarAlert={mostrarAlert}
+                history={props.history}
                 showLogin={showLogin}
                 user={user}
                 Changer={Changer} />
 
                 <Formregister
-                mostrarAlert={mostrarAlert}
+                history={props.history}
                 showLogin={showLogin}
                 user={user}
-                Changer={Changer}
-                changerForm={changerForm} />
+                Changer={Changer} />
               </div>
             </div>
           </div>

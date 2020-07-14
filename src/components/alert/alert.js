@@ -1,31 +1,38 @@
 import React, {useContext} from 'react';
 import appContext from '../../context/app/appContext';
+import { Alert, Container, Button } from 'react-bootstrap';
 
-const Alert = () => {
+const Alerts = () => {
   const appsContext = useContext(appContext);
   const { alert, mostrarAlert } = appsContext;
 
   const hideAlert = () => {
-    mostrarAlert("","");
+    mostrarAlert(null,null);
   }
 
-  let classname = "alert alert-dismissible fade show alert-";
-
-  if (alert.message.trim() === '') return null;
-  classname += alert.type;
+  if (alert.message === null) return null;
   return (
-    <div className={classname} role="alert">
-      <div className="container text-center">
-        <strong>{alert.message}</strong>
-        <button type="button"
-          onClick={hideAlert}
-          className="close"
-          data-dismiss="alert"
-          aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
+      <Alert
+        variant={alert.type} >
+        <Container>
+          <Alert.Heading>
+            {
+              alert.message !== undefined
+              ?
+              alert.message.map(mensaje =>
+                <li key={mensaje}>{mensaje}</li>
+              )
+              : 'Error del servidor'
+            }
+          </Alert.Heading>
+          <hr />
+          <div className="d-flex justify-content-center">
+            <Button onClick={hideAlert} variant={alert.type}>
+              &times;Cerrar
+            </Button>
+          </div>
+        </Container>
+      </Alert>
   );
 }
-export default Alert;
+export default Alerts;
